@@ -1,0 +1,119 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.input__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--foreground));
+  line-height: 1.4;
+}
+
+.input__required {
+  color: hsl(var(--destructive));
+  margin-left: 2px;
+}
+
+.input__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.input__field {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid hsl(var(--input));
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+  transition: all 0.15s ease;
+  outline: none;
+  resize: vertical;
+  min-height: 2.5rem;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.input__field:focus {
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.2);
+}
+
+.input__field:hover:not(:focus):not(.input__field--disabled) {
+  border-color: hsl(var(--border));
+}
+
+.input__field::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+.input__field--error {
+  border-color: hsl(var(--destructive));
+}
+
+.input__field--error:focus {
+  border-color: hsl(var(--destructive));
+  box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.2);
+}
+
+.input__field--disabled {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.input__field--disabled::placeholder {
+  color: hsl(var(--muted-foreground) / 0.7);
+}
+
+/* 文本域特殊样式 */
+textarea.input__field {
+  min-height: 5rem;
+  resize: vertical;
+  font-family: inherit;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* 计数器 */
+.input__counter {
+  align-self: flex-end;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  margin-top: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+/* 错误信息 */
+.input__error {
+  font-size: 0.75rem;
+  color: hsl(var(--destructive));
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+/* 帮助文本 */
+.input__help {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+  margin-top: 0.25rem;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .input__field {
+    font-size: 1rem; /* 防止iOS Safari自动缩放 */
+    min-height: 3rem;
+  }
+  
+  textarea.input__field {
+    min-height: 7.5rem;
+  }
+}

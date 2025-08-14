@@ -1,0 +1,87 @@
+/* 主题选择器样式 */
+
+.theme-selector {
+  /* 继承 Select 组件的样式 */
+}
+
+/* 主题选择器选项样式（如果需要自定义） */
+.theme-selector__option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  margin: 0.125rem 0;
+  transition: background-color 0.15s ease;
+}
+
+.theme-selector__option:hover {
+  background-color: hsl(var(--accent));
+}
+
+.theme-selector__option:last-child {
+  margin-bottom: 0;
+}
+
+.theme-selector__option-label {
+  font-weight: 500;
+  color: hsl(var(--popover-foreground));
+  margin-bottom: 0.25rem;
+}
+
+.theme-selector__option-description {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+}
+
+.theme-selector__option-category {
+  font-size: 0.75rem;
+  color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.1);
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  margin-top: 0.375rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* 主题选择器激活状态 */
+.theme-selector__option--active {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  font-weight: 500;
+}
+
+.theme-selector__option--active .theme-selector__option-label {
+  color: hsl(var(--accent-foreground));
+  font-weight: 600;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .theme-selector__option {
+    padding: 0.625rem 0.75rem;
+  }
+  
+  .theme-selector__option-description {
+    font-size: 0.8125rem;
+  }
+  
+  .theme-selector__option-category {
+    font-size: 0.6875rem;
+    padding: 0.0625rem 0.375rem;
+  }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+  .theme-selector__option:hover {
+    background-color: hsl(var(--accent) / 0.7);
+  }
+  
+  .theme-selector__option--active {
+    background-color: hsl(var(--accent) / 0.8);
+  }
+}

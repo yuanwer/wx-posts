@@ -1,0 +1,117 @@
+.article-preview {
+  height: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.article-preview__container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-preview__content {
+  width: 100%;
+  background: #ffffff;
+  overflow: visible;
+  height: fit-content;
+}
+
+/* 保留必要的装饰效果 - 这些不会被复制，仅用于应用内显示美化 */
+
+/* 小节间分割线装饰效果（仅应用内显示，复制时不包含） */
+.article-preview__content > article > div:nth-child(2) > div:not(:last-child) {
+  position: relative;
+}
+
+.article-preview__content > article > div:nth-child(2) > div:not(:last-child):not(.article-preview__content > article > div:nth-child(2) > div:last-child) {
+  margin-bottom: 36px;
+}
+
+.article-preview__content > article > div:nth-child(2) > div:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent 0%, rgba(102, 126, 234, 0.2) 50%, transparent 100%);
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+  .article-preview__container {
+    padding: 0;
+  }
+  
+  .article-preview__content {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .wechat-article {
+    padding: 16px;
+  }
+  
+  .wechat-article__title {
+    font-size: 22px;
+  }
+  
+  .wechat-article__section-title {
+    font-size: 18px;
+  }
+  
+  .wechat-article__paragraph {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  
+  .wechat-article__summary {
+    padding: 20px;
+  }
+  
+  .wechat-article__conclusion {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-preview__container {
+    padding: 0;
+  }
+  
+  .wechat-article {
+    padding: 12px;
+  }
+  
+  .wechat-article__title {
+    font-size: 20px;
+  }
+  
+  .wechat-article__section-title {
+    font-size: 17px;
+  }
+  
+  .wechat-article__paragraph {
+    font-size: 15px;
+    text-indent: 0;
+  }
+  
+  .wechat-article__summary {
+    padding: 16px;
+  }
+  
+  .wechat-article__conclusion {
+    padding: 20px;
+  }
+  
+  .wechat-article__section-title-marker {
+    width: 3px;
+    height: 16px;
+  }
+}

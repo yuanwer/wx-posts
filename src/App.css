@@ -1,0 +1,128 @@
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  background: hsl(var(--background));
+  position: relative;
+}
+
+.app__sidebar {
+  width: 31.25rem;
+  min-width: 31.25rem;
+  height: 100vh;
+  overflow-y: auto;
+  background: hsl(var(--card));
+  border-right: 1px solid hsl(var(--border));
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.app__actions {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid hsl(var(--border));
+  display: flex;
+  flex-direction: row;
+  gap: 0.75rem;
+}
+
+.app__action-button {
+  flex: 1;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.app__main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: hsl(var(--muted) / 0.3);
+}
+
+.app__preview {
+  width: 23.4375rem;
+  height: 41.6875rem;
+  background: hsl(var(--background));
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+              0 10px 10px -5px rgb(0 0 0 / 0.04);
+  overflow: hidden;
+  position: relative;
+}
+
+.app__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.app__placeholder-content {
+  text-align: center;
+  color: hsl(var(--muted-foreground));
+}
+
+.app__placeholder-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+.app__placeholder-content p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* 移动端优化 */
+@media (max-width: 1024px) {
+  .app {
+    flex-direction: column;
+  }
+  
+  .app__sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+  }
+  
+  .app__main {
+    flex: 1;
+    min-height: 41.6875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .app__main {
+    padding: 1rem;
+  }
+  
+  .app__preview {
+    width: 100%;
+    max-width: 23.4375rem;
+    height: 100%;
+    min-height: 37.5rem;
+    border-radius: 1rem;
+  }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.app__preview {
+  animation: fadeIn 0.6s ease-out;
+}
