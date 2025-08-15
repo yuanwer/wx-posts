@@ -1,69 +1,62 @@
-# React + TypeScript + Vite
+# wx-posts
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这是一个用于管理和发布微信文章的小型项目。该项目旨在简化微信文章的收集、整理、编辑和发布流程，适用于个人或团队进行内容管理。
 
-Currently, two official plugins are available:
+## 功能简介
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 微信文章的收集与整理
+- 文章内容的编辑和格式化
+- 文章的分类与标签管理
+- 一键发布到目标平台（如公众号、网站等）
 
-## Expanding the ESLint configuration
+## 项目结构
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+wx-posts/
+├── src/            # 源码目录，主要业务逻辑实现
+├── data/           # 存储文章及相关数据
+├── public/         # 静态资源（如图片、样式等）
+├── README.md       # 项目说明文档
+└── ...             # 其他配置或辅助文件
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 安装与运行
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. 克隆仓库到本地：
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone https://github.com/yuanwer/wx-posts.git
+   cd wx-posts
+   ```
+
+2. 安装依赖：
+
+   ```bash
+   npm install
+   ```
+
+3. 启动项目：
+
+   ```bash
+   npm start
+   ```
+
+> 如果有特殊配置或初始化步骤，请补充相关说明。
+
+## 使用说明
+
+- 请在 `src/` 目录下编写或管理您的微信文章内容。
+- 编辑和分类功能可根据实际业务需求进行扩展。
+- 支持 Markdown 格式撰写内容，便于排版和迁移。
+
+## 贡献方式
+
+欢迎提交 Issues 或 Pull Requests 以优化项目。请遵守贡献指南（如有）。
+
+## 许可证
+
+本项目采用 MIT 许可证，详细内容请参见 [LICENSE](./LICENSE)。
+
+## 联系方式
+
+如有疑问或建议，请通过 GitHub Issues 联系维护者。
