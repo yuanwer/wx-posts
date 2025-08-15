@@ -5,7 +5,7 @@ import type { ArticleTheme } from '../types';
  * 深色背景，蓝紫科技感，适合科技创新类主题
  */
 export const techTheme: ArticleTheme = {
-  id: 'tech-future',
+  id: 'tech',
   name: '科技未来',
   description: '深色背景，蓝紫科技感，适合科技创新类主题',
   category: 'tech',
@@ -60,7 +60,7 @@ export const techTheme: ArticleTheme = {
         lineHeight: 1.3,
         marginBottom: '18px',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'flex-start'
       },
       content: {
         marginLeft: '20px',

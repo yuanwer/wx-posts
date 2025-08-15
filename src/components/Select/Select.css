@@ -159,20 +159,3 @@
   }
 }
 
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .select__trigger {
-    min-height: 3rem;
-    font-size: 1rem; /* 防止iOS Safari自动缩放 */
-  }
-  
-  .select__value,
-  .select__placeholder,
-  .select__option {
-    font-size: 1rem;
-  }
-  
-  .select__options {
-    max-height: 12.5rem;
-  }
-}

@@ -60,7 +60,7 @@ export const wechatOfficialTheme: ArticleTheme = {
         lineHeight: 1.4,
         marginBottom: '16px',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'flex-start'
       },
       content: {
         marginLeft: '16px',

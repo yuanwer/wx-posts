@@ -1,16 +1,17 @@
-import { useRef, useState, useImperativeHandle, forwardRef, useMemo } from 'react';
+import { useRef, useState, useImperativeHandle, forwardRef } from 'react';
 import { type ArticleGenerateResponse } from '../../api/articleApi';
 import { copyElementWithStyles } from '../../utils/clipboard';
 import { useTheme } from '../../hooks/useTheme';
-import { convertThemeToInlineStyles } from '../../themes/utils';
-import type { ArticleTheme } from '../../themes/types';
+import { getThemeComponent } from './themes';
 import './ArticlePreview.css';
 
 interface ArticlePreviewProps {
   /** 文章数据 */
   article: ArticleGenerateResponse;
-  /** 指定主题（可选） */
-  theme?: ArticleTheme;
+  /** 指定主题ID（可选） */
+  themeId?: string;
+  /** 复制状态变化回调 */
+  onCopyStatusChange?: (status: 'idle' | 'copying' | 'success' | 'error') => void;
 }
 
 export interface ArticlePreviewRef {
@@ -19,38 +20,41 @@ export interface ArticlePreviewRef {
   copyStatus: 'idle' | 'copying' | 'success' | 'error';
 }
 
-const ArticlePreview = forwardRef<ArticlePreviewRef, ArticlePreviewProps>(({ article, theme }, ref) => {
+const ArticlePreview = forwardRef<ArticlePreviewRef, ArticlePreviewProps>(({ article, themeId, onCopyStatusChange }, ref) => {
   const articleRef = useRef<HTMLDivElement>(null);
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copying' | 'success' | 'error'>('idle');
   const { currentTheme } = useTheme();
   
-  // 使用传入的主题或当前主题
-  const activeTheme = theme || currentTheme;
+  // 使用传入的主题ID或当前主题ID
+  const activeThemeId = themeId || currentTheme.id;
   
-  // 将主题配置转换为内联样式
-  const styles = useMemo(() =>
-    convertThemeToInlineStyles(activeTheme),
-    [activeTheme]
-  );
+  // 获取对应的主题组件
+  const ThemeComponent = getThemeComponent(activeThemeId);
+
+  // 当复制状态改变时通知父组件
+  const updateCopyStatus = (status: 'idle' | 'copying' | 'success' | 'error') => {
+    setCopyStatus(status);
+    onCopyStatusChange?.(status);
+  };
 
   const handleCopy = async () => {
     if (!articleRef.current) return;
 
-    setCopyStatus('copying');
+    updateCopyStatus('copying');
     
     try {
       const success = await copyElementWithStyles(articleRef.current);
       if (success) {
-        setCopyStatus('success');
-        setTimeout(() => setCopyStatus('idle'), 2000);
+        updateCopyStatus('success');
+        setTimeout(() => updateCopyStatus('idle'), 2000);
       } else {
-        setCopyStatus('error');
-        setTimeout(() => setCopyStatus('idle'), 2000);
+        updateCopyStatus('error');
+        setTimeout(() => updateCopyStatus('idle'), 2000);
       }
     } catch (error) {
       console.error('复制失败:', error);
-      setCopyStatus('error');
-      setTimeout(() => setCopyStatus('idle'), 2000);
+      updateCopyStatus('error');
+      setTimeout(() => updateCopyStatus('idle'), 2000);
     }
   };
 
@@ -97,47 +101,10 @@ const ArticlePreview = forwardRef<ArticlePreviewRef, ArticlePreviewProps>(({ art
     <div className="article-preview">
       <div className="article-preview__container">
         <div ref={articleRef} className="article-preview__content">
-          <article style={styles.container}>
-            <header style={styles.header}>
-              <h1 style={styles.title}>{article.title}</h1>
-              <div style={styles.meta}>
-                <time>
-                  {formatDate(article.createdAt)}
-                </time>
-              </div>
-            </header>
-
-            <div style={styles.content}>
-              {/* 引言 */}
-              <div style={styles.introductionWrapper}>
-                {article.introduction.split('\n\n').map((paragraph, index) => (
-                  <p key={`intro-${index}`} style={styles.paragraph}>
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-
-              {/* 小节列表 */}
-              {article.sections.map((section, sectionIndex) => (
-                <div key={`section-${sectionIndex}`} style={styles.section}>
-                  <h2 style={styles.sectionTitle}>
-                    {styles.sectionMarker && (
-                      <span style={styles.sectionMarker}></span>
-                    )}
-                    {sectionIndex + 1}. {section.title}
-                  </h2>
-                  <div style={styles.sectionContent}>
-                    {section.content.split('\n\n').map((paragraph, paragraphIndex) => (
-                      <p key={`section-${sectionIndex}-para-${paragraphIndex}`} style={styles.paragraph}>
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-            </div>
-          </article>
+          <ThemeComponent 
+            article={article} 
+            formatDate={formatDate}
+          />
         </div>
       </div>
     </div>

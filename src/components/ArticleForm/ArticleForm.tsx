@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Wand2 } from 'lucide-react';
 import Button from '../Button/Button';
 import Input from '../Input/Input';
 import Select from '../Select/Select';
@@ -91,9 +90,6 @@ const ArticleForm: React.FC<ArticleFormProps> = ({ onSubmit, loading = false }) 
   return (
     <div className="article-form">
       <div className="article-form__header">
-        <div className="article-form__icon">
-          <Wand2 size={24} />
-        </div>
         <h2 className="article-form__title">AI 文章生成器</h2>
         <p className="article-form__subtitle">
           输入您的需求，AI 将为您生成优质的微信公众号文章

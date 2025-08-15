@@ -27,6 +27,28 @@
   gap: 0.75rem;
 }
 
+.app__error {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: hsl(var(--destructive) / 0.1);
+  border: 1px solid hsl(var(--destructive) / 0.2);
+  border-radius: var(--radius);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.app__error-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(var(--destructive));
+  font-size: 0.875rem;
+  line-height: 1.25;
+}
+
+.app__error-content svg {
+  flex-shrink: 0;
+}
+
 .app__action-button {
   flex: 1;
   justify-content: center;
@@ -51,6 +73,7 @@
               0 10px 10px -5px rgb(0 0 0 / 0.04);
   overflow: hidden;
   position: relative;
+  animation: fadeIn 0.6s ease-out;
 }
 
 .app__placeholder {
@@ -79,39 +102,6 @@
   line-height: 1.5;
 }
 
-/* 移动端优化 */
-@media (max-width: 1024px) {
-  .app {
-    flex-direction: column;
-  }
-  
-  .app__sidebar {
-    width: 100%;
-    height: auto;
-    min-height: auto;
-  }
-  
-  .app__main {
-    flex: 1;
-    min-height: 41.6875rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .app__main {
-    padding: 1rem;
-  }
-  
-  .app__preview {
-    width: 100%;
-    max-width: 23.4375rem;
-    height: 100%;
-    min-height: 37.5rem;
-    border-radius: 1rem;
-  }
-}
-
-/* 动画效果 */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -121,8 +111,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.app__preview {
-  animation: fadeIn 0.6s ease-out;
 }

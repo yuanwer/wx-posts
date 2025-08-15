@@ -147,24 +147,3 @@
   }
 }
 
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .btn {
-    min-width: 7.5rem;
-  }
-  
-  .btn--small {
-    height: 2.5rem;
-    padding: 0 1rem;
-  }
-  
-  .btn--medium {
-    height: 2.75rem;
-    padding: 0 1.25rem;
-  }
-  
-  .btn--large {
-    height: 3.25rem;
-    padding: 0 1.5rem;
-  }
-}

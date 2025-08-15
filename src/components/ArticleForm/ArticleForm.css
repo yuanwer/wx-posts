@@ -15,18 +15,6 @@
   color: hsl(var(--foreground));
 }
 
-.article-form__icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3rem;
-  height: 3rem;
-  background-color: hsl(var(--primary) / 0.1);
-  color: hsl(var(--primary));
-  border-radius: 9999px;
-  margin-bottom: 1rem;
-}
-
 .article-form__title {
   margin: 0 0 0.5rem 0;
   font-size: 1.5rem;
@@ -55,62 +43,4 @@
   font-size: 1rem;
   font-weight: 600;
   min-height: 2.75rem;
-}
-
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .article-form {
-    max-width: 100%;
-    margin: 0;
-    border-radius: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .article-form__header {
-    padding: 1rem 0 1.25rem 0;
-    flex-shrink: 0;
-  }
-  
-  .article-form__title {
-    font-size: 1.25rem;
-  }
-  
-  .article-form__subtitle {
-    font-size: 0.8125rem;
-  }
-  
-  .article-form__content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1rem;
-  }
-  
-  .article-form__submit {
-    margin-top: auto;
-    margin-bottom: 1rem;
-    min-height: 3.25rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .article-form__header {
-    padding: 0.75rem 0 1rem 0;
-  }
-  
-  .article-form__icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-  
-  .article-form__title {
-    font-size: 1.125rem;
-  }
-  
-  .article-form__content {
-    gap: 0.875rem;
-  }
 }

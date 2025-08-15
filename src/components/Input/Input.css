@@ -106,14 +106,3 @@ textarea.input__field {
   margin-top: 0.25rem;
 }
 
-/* 移动端优化 */
-@media (max-width: 768px) {
-  .input__field {
-    font-size: 1rem; /* 防止iOS Safari自动缩放 */
-    min-height: 3rem;
-  }
-  
-  textarea.input__field {
-    min-height: 7.5rem;
-  }
-}

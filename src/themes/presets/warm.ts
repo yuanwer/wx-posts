@@ -1,22 +1,22 @@
 import type { ArticleTheme } from '../types';
 
 /**
- * 温馨暖色风格主题
- * 橙色系，圆润温和，适合生活类、情感类文章
+ * 淡粉色少女风主题
+ * 简洁而不简单的少女风格，柔美清新，适合生活类文章
  */
 export const warmTheme: ArticleTheme = {
-  id: 'warm-cozy',
-  name: '温馨暖色',
-  description: '橙色系，圆润温和，适合生活类、情感类文章',
+  id: 'warm',
+  name: '淡粉少女',
+  description: '简洁而不简单的少女风格，柔美清新，适合生活类文章',
   category: 'warm',
   
   styles: {
     container: {
-      background: '#fefcf8',
+      background: '#ffeef8',
       padding: '20px',
       fontFamily: '"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif',
       lineHeight: 1.8,
-      color: '#8b4513',
+      color: '#5d4e75',
       position: 'relative'
     },
     
@@ -25,22 +25,22 @@ export const warmTheme: ArticleTheme = {
       textAlign: 'center',
       position: 'relative',
       paddingBottom: '18px',
-      borderBottom: '2px solid #ffd89b'
+      borderBottom: '1px solid #f8a5c2'
     },
     
     title: {
-      fontSize: '25px',
-      fontWeight: 700,
-      color: '#d2691e',
+      fontSize: '26px',
+      fontWeight: 600,
+      color: '#8b5a8c',
       lineHeight: 1.3,
       textAlign: 'center',
       marginBottom: '18px',
-      letterSpacing: '0.5px'
+      letterSpacing: '-0.01em'
     },
     
     meta: {
       fontSize: '13px',
-      color: '#cd853f',
+      color: '#a08ca8',
       textAlign: 'center',
       gap: '12px'
     },
@@ -54,38 +54,38 @@ export const warmTheme: ArticleTheme = {
       padding: '22px 0',
       position: 'relative',
       title: {
-        fontSize: '19px',
-        fontWeight: 600,
-        color: '#d2691e',
+        fontSize: '18px',
+        fontWeight: 500,
+        color: '#8b5a8c',
         lineHeight: 1.4,
         marginBottom: '16px',
         display: 'flex',
-        alignItems: 'center'
+        alignItems: 'flex-start'
       },
       content: {
-        marginLeft: '18px',
+        marginLeft: '34px',
         position: 'relative'
       },
       marker: {
         display: 'inline-block',
-        width: '5px',
-        height: '18px',
-        backgroundColor: '#ff8c42',
-        borderRadius: '8px',
-        marginRight: '13px',
+        width: '24px',
+        height: '24px',
+        backgroundColor: '#f8a5c2',
+        borderRadius: '6px',
+        marginRight: '10px',
         verticalAlign: 'middle',
         flexShrink: 0
       }
     },
     
     paragraph: {
-      fontSize: '16px',
+      fontSize: '15px',
       fontWeight: 400,
-      color: '#8b4513',
-      lineHeight: 1.8,
+      color: '#5d4e75',
+      lineHeight: 1.7,
       textAlign: 'left',
       wordBreak: 'break-word',
-      letterSpacing: '0.8px',
+      letterSpacing: '0.02em',
       marginBottom: '18px',
       textIndent: '2em'
     },
@@ -94,7 +94,7 @@ export const warmTheme: ArticleTheme = {
       introduction: {
         marginBottom: '34px',
         paddingBottom: '26px',
-        borderBottom: '1px solid #ffeaa7'
+        borderBottom: '1px solid #f8a5c2'
       }
     }
   },
@@ -102,10 +102,10 @@ export const warmTheme: ArticleTheme = {
   responsive: {
     mobile: {
       title: {
-        fontSize: '23px'
+        fontSize: '24px'
       },
       paragraph: {
-        fontSize: '16px',
+        fontSize: '15px',
         lineHeight: 1.7,
         textIndent: '0'
       }
