@@ -61,19 +61,15 @@ const ArticlePreview = forwardRef<ArticlePreviewRef, ArticlePreviewProps>(({ art
   const handleDownload = () => {
     if (!articleRef.current) return;
 
-    // 构建完整的文章内容
-    let content = `${article.title}\n\n`;
-    content += `${article.introduction}\n\n`;
+    // 构建完整的文章内容 (Markdown 格式)
+    let content = `# ${article.title}\n\n`;
+    content += article.content;
     
-    article.sections.forEach((section, index) => {
-      content += `${index + 1}. ${section.title}\n\n${section.content}\n\n`;
-    });
-    
-    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+    const blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `${article.title}.txt`;
+    link.download = `${article.title}.md`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

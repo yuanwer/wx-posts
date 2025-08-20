@@ -1,0 +1,177 @@
+/* Markdown 渲染样式 */
+.markdown-content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  line-height: 1.8;
+  color: #2c3e50;
+  word-break: break-word;
+}
+
+.markdown-h1 {
+  margin: 32px 0 20px 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #333333;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.markdown-h2 {
+  margin: 28px 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333333;
+  display: flex;
+  align-items: center;
+}
+
+.markdown-h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 16px;
+  background-color: #1aad19;
+  border-radius: 2px;
+  margin-right: 12px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.markdown-h3 {
+  margin: 24px 0 14px 0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.markdown-h4,
+.markdown-h5,
+.markdown-h6 {
+  margin: 20px 0 12px 0;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333333;
+}
+
+.markdown-paragraph {
+  margin: 0 0 18px 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: #333333;
+  letter-spacing: 0.5px;
+}
+
+.markdown-strong {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.markdown-em {
+  font-style: italic;
+  color: #555555;
+}
+
+.markdown-ul,
+.markdown-ol {
+  margin: 18px 0;
+  padding-left: 24px;
+}
+
+.markdown-li {
+  margin: 8px 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333333;
+  letter-spacing: 0.5px;
+}
+
+/* 主题特定的 Markdown 样式 */
+.article-theme-wechat-official .markdown-h2::before {
+  background-color: #1aad19;
+}
+
+.article-theme-business .markdown-h2::before {
+  background-color: #1976d2;
+}
+
+.article-theme-warm .markdown-h2::before {
+  background-color: #ff6b35;
+}
+
+.article-theme-tech .markdown-h2::before {
+  background-color: #00bcd4;
+}
+
+/* 科技主题特殊样式 */
+.article-theme-tech .markdown-content {
+  color: #e0e6ed;
+}
+
+.article-theme-tech .markdown-h1 {
+  color: #14a085;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "SF Mono", "Monaco", monospace;
+  text-shadow: 0 0 10px rgba(20, 160, 133, 0.5);
+}
+
+.article-theme-tech .markdown-h2 {
+  color: #14a085;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.article-theme-tech .markdown-h3,
+.article-theme-tech .markdown-h4,
+.article-theme-tech .markdown-h5,
+.article-theme-tech .markdown-h6 {
+  color: #14a085;
+}
+
+.article-theme-tech .markdown-paragraph {
+  color: #e0e6ed;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+
+/* 商务主题特殊样式 */
+.article-theme-business .markdown-h1 {
+  color: #1a365d;
+  font-size: 28px;
+}
+
+.article-theme-business .markdown-h2 {
+  color: #2d3748;
+  font-size: 20px;
+}
+
+.article-theme-business .markdown-paragraph {
+  color: #4a5568;
+  font-size: 16px;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+}
+
+/* 温暖主题特殊样式 */
+.article-theme-warm .markdown-h1 {
+  color: #8b5a8c;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.article-theme-warm .markdown-h2 {
+  color: #8b5a8c;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.article-theme-warm .markdown-paragraph {
+  color: #5d4e75;
+  font-size: 15px;
+  font-family: "Inter", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  letter-spacing: 0.02em;
+}
